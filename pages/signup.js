@@ -47,7 +47,7 @@ const Signup = () => {
         <meta charset="UTF-8"></meta>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.82"
+          content="width=device-width, initial-scale=0.65"
         ></meta>
         <title>Sign Up</title>
       </Head>
@@ -119,16 +119,7 @@ const Signup = () => {
         </center>
       </main>
       <footer>
-        <a
-          href=""
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://github.com/procheta1999/DSC-NSEC-Blogs/blob/master/public/dsc.png?raw=true"
-            alt="DSC Logo"
-            className="logo"
-          />
-        </a>
+      <Typography variant="h5">Procheta Bhattacharyya</Typography>
       </footer>
       <style jsx>{`
       img{
@@ -259,7 +250,7 @@ const Signup = () => {
 
 const SignUpLink = () => (
   <p>
-    Don't have an account?{" "}
+    Don't have an account?🤔{" "}
     <Link href="/signup">
       <a>Sign Up</a>
     </Link>

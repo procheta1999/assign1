@@ -8,7 +8,18 @@ import useFormValidation from '../src/components/Auth/useFormValidation'
 import validateLogin from "../src/components/Auth/validateLogin";
 import firebase from "../src/firebase";
 import { Typography } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 const INITIAL_STATE = {
   email: "",
   password: ""
@@ -16,6 +27,7 @@ const INITIAL_STATE = {
 
 
 const SignIn = () => {
+  const classes = useStyles();
   const router = useRouter();
   const {
     handleSubmit,
@@ -39,20 +51,20 @@ const SignIn = () => {
   }
 
   return (
-    <>
+    <div className={classes.root} style={{backgroundColor:"#153260"}}>
       <Head>
         <meta charset="UTF-8"></meta>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.8"
+          content="width=device-width, initial-scale=0.55"
         ></meta>
         <title>Homepage</title>
       </Head>
       <main>
       <div className="title">
           <center>
-            <Typography variant="h2">Welcome to My Page!</Typography>
-            <Typography variant="h3">Log In!</Typography>
+            <Typography variant="h2" style={{color:"white"}}>Welcome to My Page!</Typography>
+            <Typography variant="h3" style={{color:"white"}}>Log In!</Typography>
         </center></div>
         <br></br>
         <center>
@@ -62,33 +74,39 @@ const SignIn = () => {
           <form onSubmit={handleSubmit}>
             <div className="grid">
               <div className="card">
-                Username:
-                <input
+                <TextField
+                id="outlined-helperText"
                   onChange={handleChange}
                   value={values.email}
                   type="email"
+                  label="username"
                   placeholder="someone@example.com"
                   name="email"
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
                 
         {errors.email && <p className="error-text">{errors.email}</p>}
-                <br></br>
-                <br></br>
-                Password:
-                <input
+              <br></br>
+              <br></br>
+                <TextField
+                id="outlined-helperText"
                   onChange={handleChange}
                   value={values.password}
                   type="password"
+                  label="password"
                   placeholder="Password"
                   name="password"
                   onBlur={handleBlur}
+                  variant="outlined"
                 />
                 {errors.password && <p className="error-text">{errors.password}</p>}
                 {firebaseError && <p className="error-text">{firebaseError}</p>}
-                <br></br>
                 <center>
-                  <button type="submit" disabled={isSubmitting} >Sign In</button>
+                  <Button 
+                  variant="contained"
+                  color="primary"
+                  style={{ marginTop: "20px", width: "200px" }}type="submit" disabled={isSubmitting} >Sign In📤</Button>
                 </center>
                 <br></br>
                 <br></br>
@@ -104,16 +122,7 @@ const SignIn = () => {
         </center>
       </main>
       <footer>
-        <a
-          href=""
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://github.com/procheta1999/DSC-NSEC-Blogs/blob/master/public/dsc.png?raw=true"
-            alt="DSC Logo"
-            className="logo"
-          />
-        </a>
+        <Typography variant="h5">Procheta Bhattacharyya</Typography>
       </footer>
       <style jsx>{`
       img{
@@ -122,22 +131,13 @@ const SignIn = () => {
       }
      
         footer {
+          color:white;
           width: 100%;
           height: 100px;
-          border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          
         }
         .grid {
           display: flex;
@@ -150,26 +150,24 @@ const SignIn = () => {
         }
 
         .card {
+          background-image:
+            url(https://t4.ftcdn.net/jpg/03/35/44/49/240_F_335444972_UgKdQD7wlTgfywtzqfOVzJOHjFyma9bv.jpg);
+          background-size: cover;
+          background-position: top;
+          position: relative; 
           margin: 2rem;
           flex-basis: 45%;
           padding: 3rem;
           text-align: left;
           color: inherit;
           text-decoration: none;
-          border: 1px solid black;
+          border: 1px solid grey;
           border-radius: 20px;
-          -moz-box-shadow: inset 0 0 10px #000000;
-          -webkit-box-shadow: inset 0 0 10px #000000;
-          box-shadow: inset 0 0 10px #000000;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          -moz-box-shadow: 5px 5px 5px 5px grey;
+          -webkit-box-shadow: 5px 5px 5px 5px grey;
+          box-shadow: 5px 5px 5px 5px grey;
         }
 
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
 
         .card h3 {
           margin: 0 0 1rem 0;
@@ -239,7 +237,7 @@ const SignIn = () => {
           box-sizing: border-box;
         }
       `}</style>
-    </>
+    </div>
   );
 };
 
