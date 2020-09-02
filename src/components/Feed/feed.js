@@ -27,9 +27,11 @@ const ScrollableTabsButtonAuto = () => {
       <meta charset="UTF-8"></meta>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.55"
+          content="width=device-width, initial-scale=0.4"
         ></meta></Head>
+        <div style={{marginLeft:"30px",marginRight:"30px"}}>
       <Map/>
+      </div>
       <br></br>
       <center><Typography onClick={() => firebase.logout()} variant="h4" gutterBottom style={{ textAlign: "center" }}>
         Do you wish to log out?

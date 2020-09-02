@@ -22,7 +22,7 @@ export default function Map(){
       <MapGL
         {...viewport}
         mapboxApiAccessToken={TOKEN}
-        mapStyle="mapbox://styles/mapbox/dark-v8"
+        mapStyle="mapbox://styles/mapbox/light-v8"
         onViewportChange={_onViewportChange}
       >
         <GeolocateControl
