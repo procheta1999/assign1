@@ -16,25 +16,33 @@ import InputBase from '@material-ui/core/InputBase';
 import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button"
 import { blue } from '@material-ui/core/colors';
-
 import {IndexLink} from "../../../pages/index";
 import { FirebaseContext } from "../../firebase";
-
+import Map from "./map"
 const ScrollableTabsButtonAuto = () => {
   return (
+    
     <div>
-      <Typography onClick={() => firebase.logout()} variant="h4" gutterBottom style={{ textAlign: "center" }}>
+      <Head><title>Dashboard</title>
+      <meta charset="UTF-8"></meta>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=0.55"
+        ></meta></Head>
+      <Map/>
+      <br></br>
+      <center><Typography onClick={() => firebase.logout()} variant="h4" gutterBottom style={{ textAlign: "center" }}>
         Do you wish to log out?
-      </Typography>
-        <center><button
+      </Typography></center>
+        <center><Button
             variant="contained"
             color="primary"
             type="submit"
             style={{ marginTop: "20px", width: "200px" }}
           >
             <IndexLink/>
-          </button></center>
-
+          </Button></center>
+<br></br>
       <style jsx>{`
       .title {
         text-align:center;

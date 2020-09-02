@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ScrollableTabsButtonAuto from '../src/components/Feed/feed'
 import {useRouter} from "next/router";
 import { FirebaseContext } from "../src/firebase";
+import { Typography } from "@material-ui/core";
 
 function HomePage () {
   const router = useRouter()
@@ -14,7 +15,7 @@ function HomePage () {
     
     return (
         <>
-        
+        <center><Typography variant="h2">Dashboard</Typography></center>
         <ScrollableTabsButtonAuto />
 
           
