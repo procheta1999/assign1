@@ -9,6 +9,17 @@ import useFormValidation from '../src/components/Auth/useFormValidation'
 import validateLogin from "../src/components/Auth/validateLogin";
 import firebase from "../src/firebase";
 import { Typography } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
 const INITIAL_STATE = {
   name: "",
@@ -17,6 +28,7 @@ const INITIAL_STATE = {
 };
 
 const Signup = () => {
+  const classes = useStyles();
   const router = useRouter();
   const {
     handleSubmit,
@@ -42,20 +54,20 @@ const Signup = () => {
 
 
   return (
-    <>
+    <div className={classes.root} style={{backgroundColor:"#153260"}}>
       <Head>
         <meta charset="UTF-8"></meta>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.65"
+          content="width=device-width, initial-scale=0.55"
         ></meta>
         <title>Sign Up</title>
       </Head>
       <main>
         <div className="title">
           <center>
-            <Typography variant="h2">Welcome to My Page!</Typography>
-            <Typography variant="h3">Sign Up!</Typography>
+            <Typography variant="h2" style={{color:"white"}}>Welcome to My Page!</Typography>
+            <Typography variant="h3" style={{color:"white"}}>Sign Up!</Typography>
         </center></div>
         <center>
           <img src="https://media2.giphy.com/media/3oKIPtaS9TtrmIzXRm/200w.webp?cid=ecf05e47da8l5cc13fbpywrz494ko8i25zvbze2byyg9ubtn&rid=200w.webp"></img>
@@ -64,30 +76,37 @@ const Signup = () => {
           <form onSubmit={handleSubmit}>
             <div className="grid">
               <div className="card">
-                Username:
-                <input
+                <TextField
+                id="outlined-helperText"
                   onChange={handleChange}
                   value={values.name}
                   name="name"
+                  label="username"
                   type="text"
                   placeholder="Your name"
+                  variant="outlined"
                 />
                 <br></br>
                 <br></br>
-                Email:
-                <input
+                <TextField
+                id="outlined-helperText"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
                   name="email"
+                  label="email"
                   type="text"
                   placeholder="Email Address"
+                  variant="outlined"
                 />
                 {errors.email && <p className="error-text">{errors.email}</p>}
                 <br></br>
                 <br></br>
-                Password:
-                <input
+
+                <TextField
+                id="outlined-helperText"
+                label="password"
+                variant="outlined"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
@@ -100,18 +119,20 @@ const Signup = () => {
                 <br></br>
                 <br></br>
                 <center>
-                  <button type="submit">Sign Up</button>
+                  <Button variant="contained"
+                  color="primary"
+                  style={{ marginTop: "20px", width: "200px" }} type="submit">Sign Up</Button>
                 </center>
                 <br></br>
                 <center>
-                  <button
+                  <Button
                     variant="contained"
                     color="primary"
                     type="submit"
                     style={{ marginTop: "20px", width: "200px" }}
                   >
                     <IndexLink />
-                  </button>
+                  </Button>
                 </center>
               </div>
             </div>
@@ -129,7 +150,7 @@ const Signup = () => {
         footer {
           width: 100%;
           height: 100px;
-          border-top: 1px solid #eaeaea;
+          color:white;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -155,6 +176,11 @@ const Signup = () => {
         }
 
         .card {
+          background-image:
+            url(https://t4.ftcdn.net/jpg/03/35/44/49/240_F_335444972_UgKdQD7wlTgfywtzqfOVzJOHjFyma9bv.jpg);
+          background-size: cover;
+          background-position: top;
+          position: relative; 
           margin: 2rem;
           flex-basis: 45%;
           padding: 3rem;
@@ -244,7 +270,7 @@ const Signup = () => {
           box-sizing: border-box;
         }
       `}</style>
-    </>
+    </div>
   );
 };
 

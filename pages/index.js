@@ -13,7 +13,7 @@ export default function LandingPage(){
   const IndexLink = () => (
     <p>
       <Link href='/'>
-        <a>HomePage 🏠</a>
+        <a style={{color:"white"}}>HomePage 🏠</a>
       </Link>
     </p>
   );
